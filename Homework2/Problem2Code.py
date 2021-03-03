@@ -10,15 +10,19 @@ def find(in_date):
     #making a list of months
     #converting months to integers
     month_list={ "January":"1","February":"2", "March":"3","April":"4", "May":"5", "June":"6","July":"7", "August":"8", "September":"9","October":"10", "November":"11", "December":"12"}
-    year = in_date.split(",")[-1].strip()
-    month = in_date.split(",")[0].split()[0]
-    day = in_date.split(",")[0].split()[-1]
-    mm =  month_list[month]  # Convert month to integer
-    return str(mm) + "/" + day + "/" + year
+    try:
+        year = in_date.split(",")[-1].strip()
+        month = in_date.split(",")[0].split()[0]
+        day = in_date.split(",")[0].split()[-1]
+        mm =  month_list[month]  # Convert month to integer
+        int(year) #making sure year is a number
+        int(day)  #making sure day is also a number
+        return str(mm) + "/" + day + "/" + year #returning the values as a string put together
+    except:
+        return ""
 
-while True: #infinite loop
-   inp = input() #take input from user
-   if inp == "-1": #Check if input is -1
-      break #Breaks out of the loop
-   print(find(inp)) #Function call
+with open('C:\\Users\\nguye\\PycharmProjects\\CIS2348\\Homework2\\inputDates.txt') as f: #Reading inputDates.txt
+   for x in f.readlines():  #loop line by line
+      if x.strip() != "-1": #Check if -1 is entered and then ignored
+         print(find(x.strip())) #print result
 
