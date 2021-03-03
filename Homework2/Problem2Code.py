@@ -21,3 +21,4 @@ while True: #infinite loop
    if inp == "-1": #Check if input is -1
       break #Breaks out of the loop
    print(find(inp)) #Function call
+
