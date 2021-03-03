@@ -22,7 +22,10 @@ def find(in_date):
         return ""
 
 with open('C:\\Users\\nguye\\PycharmProjects\\CIS2348\\Homework2\\inputDates.txt') as f: #Reading inputDates.txt
-   for x in f.readlines():  #loop line by line
-      if x.strip() != "-1": #Check if -1 is entered and then ignored
-         print(find(x.strip())) #print result
+    for x in f.readlines():
+        if x.strip() != "-1":  # Check if -1 is entered
+            res = find(x.strip()) #printing result
+            if res != "":  #seeing if result is valid
+                with open("parsedDates.txt", "a+") as w:
+                    w.write(res + "\n")  # Writes to a new file
 
