@@ -1,3 +1,5 @@
+#Ryan Nguyen PSID: 1805277
+
 class ItemToPurchase:
     # default costructor
     def __init__(self):
